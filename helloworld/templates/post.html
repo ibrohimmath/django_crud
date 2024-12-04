@@ -1,0 +1,14 @@
+
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block title %} Post {{ post.id }} {% endblock %}
+
+{% block content %}
+  <div class="post-card" style="margin: auto">
+    <h1 class="post-title">{{ post.title }}</h1>
+    <p class="post-description">{{ post.description }}</p>
+  </div>
+{% endblock %}
+

@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block title %} Posts {% endblock %}
+
+{% block content %}
+<div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+  {% for post in posts %}
+  <div class="post-card">
+    <h1 class="post-title">{{ post.title }}</h1>
+    <p class="post-description">
+      {{ post.description|truncatechars:100 }}
+    </p>
+    <a class="post-card__link" href="{% url 'post' post.id %}">See More</a>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

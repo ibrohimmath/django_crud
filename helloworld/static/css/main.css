@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
+}
+
+a {
+  color: red;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease-in-out; /* Smooth effect */
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: red;
+  transition: width 0.3s ease-in-out; /* Transition effect for underline */
+}
+
+a:hover::after {
+  width: 100%; /* Expands the underline smoothly */
+}
+
+.background-image {
+  position: fixed; /* Use fixed for a true background effect */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  opacity: 0.4;
+  z-index: 0; /* Ensure this is lower than other content */
+  pointer-events: none; /* Prevent interaction with the image */
+}
+
+.container {
+  position: relative; /* Position relative ensures z-index works */
+  width: 85%;
+  margin: auto;
+  z-index: 10; /* Ensure this is higher than the background */
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 10px;
+}
+
+main {
+  padding: 40px 0;
+  position: relative;
+}
+
+.post-card {
+  max-width: 250px;
+  max-height: 300px;
+  border: 1px solid #ddd;
+  padding: 10px 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 gray;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 20; /* Ensure cards are above the background */
+  position: relative; /* Ensure z-index applies */
+}
+
+.post-title {
+  font-size: 1.5rem; 
+}
+
+.post-description {
+  width: 100%; 
+  overflow-wrap: break-word; 
+  word-break: break-word; 
+  text-align: justify;
+  overflow-y: auto;
+}
+
+.post-card__link {
+  margin-top: auto;
+}
+
+.item {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
