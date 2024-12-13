@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block title %} Users {% endblock %}
+
+{% block content %}
+<div style="width: 100%">
+  <table class="users">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>User Name</th>
+        <th>Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+      <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ user.first_name }}</td>
+        <td>{{ user.last_name }}</td>
+        <td>{{ user.username }}</td>
+        <td>
+          <div class="user-image__wrapper">
+            <img src="{{ user.image.url }}" class="user-image" />
+          </div>
+        </td>
+        <td style="border: none !important; height: 100%;">
+          <a href="{% url 'users_edit' user.id %}" class="no-effect">
+            <div style="border: 1px solid red !important; border-radius: 10px; padding: 2px 6px; display: flex; align-items: center; gap: 10px;">
+              <span>Edit</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path fill="currentColor" d="M7.736 1.56a1.914 1.914 0 0 1 2.707 2.708l-.234.234l-2.707-2.707zm-.941.942L1.65 7.646a.5.5 0 0 0-.136.255l-.504 2.5a.5.5 0 0 0 .588.59l2.504-.5a.5.5 0 0 0 .255-.137l5.145-5.145z"/></svg>
+            </div>
+          </a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block title %} Update User {% endblock %}
+
+{% block content %}
+<div class="add-user__wrapper">
+  <!-- <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Edit User</button>
+  </form> -->
+
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    {{ form.as_p }}
+
+    <!-- Show the current image if it exists -->
+    <div>
+      <label for="id_image">Current Image:</label>
+      {% if user.image %}
+        <img src="{{ user.image.url }}" alt="Current Image" style="max-width: 100px; height: auto;" />
+      {% else %}
+        <p>No image available</p>
+      {% endif %}
+    </div>
+
+    <button type="submit">Update User</button>
+  </form>
+</div>
+
+{% endblock %}

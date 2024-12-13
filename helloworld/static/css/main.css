@@ -15,7 +15,8 @@ a {
   transition: all 0.3s ease-in-out; /* Smooth effect */
 }
 
-a::after {
+
+a:not(.no-effect)::after {
   content: '';
   position: absolute;
   left: 0;
@@ -26,7 +27,7 @@ a::after {
   transition: width 0.3s ease-in-out; /* Transition effect for underline */
 }
 
-a:hover::after {
+a:not(.no-effect):hover::after {
   width: 100%; /* Expands the underline smoothly */
 }
 
@@ -95,4 +96,65 @@ main {
 .item {
   font-size: 1.4rem;
   font-weight: 600;
+}
+
+table.users, table.users th, table.users td {
+  border: 1px solid red !important;
+  border-radius: 10px;
+}
+
+table.users {
+  margin: auto;
+}
+
+th, td {
+  padding: 5px 10px;
+  text-align: center;
+}
+
+.user-image__wrapper {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.add-user__wrapper {
+  padding: 80px 20vw;
+}
+
+.add-user__wrapper form {
+  border: 2px solid orange;
+  border-radius: 10px;
+  padding: 20px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.add-user__wrapper form button {
+  margin: auto;
+  outline: none;
+  border: 1px solid orange;
+  border-radius: 20px;
+  width: fit-content;
+  flex-shrink: 0;
+  background-color: white;
+  color: goldenrod;
+  padding: 3px 8px;
+  transition: background-color ease-in-out 0.4s;
+}
+
+.add-user__wrapper form button:hover {
+  background: rgb(241, 240, 240);
+  cursor: pointer;
 }

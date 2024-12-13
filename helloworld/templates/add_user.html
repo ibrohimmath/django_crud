@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block title %} Add User {% endblock %}
+
+{% block content %}
+<div class="add-user__wrapper">
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Create User</button>
+  </form>
+</div>
+{% endblock %}
